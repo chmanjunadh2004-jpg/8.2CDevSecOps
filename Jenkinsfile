@@ -32,4 +32,18 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext(
+                subject: "Jenkins Build ${currentBuild.currentResult}: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """The Jenkins build has finished.
+
+Job: ${env.JOB_NAME}
+Build number: ${env.BUILD_NUMBER}
+Result: ${currentBuild.currentResult}
+""",
+                mimeType: 'text/plain'
+            )
+        }
+    }
 }
