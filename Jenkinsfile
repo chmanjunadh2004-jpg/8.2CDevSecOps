@@ -35,6 +35,7 @@ pipeline {
     post {
         always {
             emailext(
+                to: 'ch.manjunadh2004@gmail.com',
                 subject: "Jenkins Build ${currentBuild.currentResult}: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """The Jenkins build has finished.
 
