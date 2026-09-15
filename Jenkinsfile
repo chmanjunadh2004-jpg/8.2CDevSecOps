@@ -43,7 +43,8 @@ Job: ${env.JOB_NAME}
 Build number: ${env.BUILD_NUMBER}
 Result: ${currentBuild.currentResult}
 """,
-                mimeType: 'text/plain'
+                mimeType: 'text/plain',
+                attachLog: true
             )
         }
     }
